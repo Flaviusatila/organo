@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { Livro } from './livro';
 
 @Component({
   selector: 'app-livro',
@@ -7,15 +8,9 @@ import { Component } from '@angular/core';
   styleUrl: './livro.component.css'
 })
 export class LivroComponent {
+  livro = input.required<Livro>();
 
   alternarFavorito(){
-    this.livro.favorito = !this.livro.favorito
-  }
-
-  livro = {
-    titulo: "As Ondas",
-    autoria: "Virginia Wolf",
-    imagem: "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQzoyRtT93iJEWXR8ZR16Czg_L_R_h4-2TZFDpulqQWvmMrgDjuSv9w8hAEZRR4vALJGdcrgOKh0UyaRq09HLLuJf0_HBEXRcXiIPaw2qImtgw&usqp=CAc",
-    favorito: false
+    this.livro().favorito = !this.livro().favorito;
   }
 }
